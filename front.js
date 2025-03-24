@@ -52,11 +52,10 @@ document.addEventListener('DOMContentLoaded', () =>{
                 cartItem.classList.add('cart-item', 'individual-cart-item');
                 cartItem.innerHTML = `
                 <span>(${item.quantity}x)${item.name}</span>
-                <span class="cart-item-price>$${(item.price * item.quantity).toFixed(2)}
-                <button class="remove-btn" data-index="${index}">
-                    <i class="fa-solid fa-times"</i>
-                </button>
-                </span>
+                <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                 <button class="remove-btn" data-index="${index}">
+                    <i class="fa-solid fa-times"></i>
+                 </button>
                 `;
 
                 cartItemList.appendChild(cartItem);
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             const removeButtons = document.querySelectorAll('.remove-btn');
             removeButtons.forEach((button) => {
                 button.addEventListener('click', (event) => {
-                    const index = event.target.dataset.index;
+                    const index = event.target.closest('.remove-btn').dataset.index;
                     removeItemFromCart(index);
                     
                 });
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             sidebar.classList.toggle('open');
         });
 
-        closeButtton.addEventListener('click', () => {
+        closeButton.addEventListener('click', () => {
             sidebar.classList.remove('open');
         });
     });
