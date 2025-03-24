@@ -77,5 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButton.addEventListener('click', () => {
         sidebar.style.display = 'none'; // Hide the cart sidebar
+
     });
 });
