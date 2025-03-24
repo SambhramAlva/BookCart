@@ -78,5 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.addEventListener('click', () => {
         sidebar.style.display = 'none'; // Hide the cart sidebar
 
+        const checkoutButton = document.querySelector('.checkout-btn');
+        function UpdateCheckoutButton() {
+            checkoutButton.addEventListener('click', () => {
+                if (cartItems.length === 0) {
+                    alert('Your cart is empty!');
+                } else {
+                    alert('Thank you for your purchase!');
+                    cartItems = [];
+                    updateCartUI();
+                }
+            });
+            if(! document.querySelector(".checkout-btn")) {
+                sidebar.appendChild(checkoutButton);
+            }
+        }
     });
 });
